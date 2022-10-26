@@ -1,0 +1,34 @@
+{
+  "name": "una-connect-js",
+  "version": "0.0.1-beta",
+  "description": "JS client for Una-connect",
+  "repository": "https://github.com/dolu89/una-connect-js",
+  "author": "Dolu",
+  "license": "MIT",
+  "private": false,
+  "type": "module",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "clean": "rimraf dist",
+    "prepublishOnly": "npm run build",
+    "build": "npm run clean && tsup src/index.ts --format esm,cjs"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.5",
+    "rimraf": "^3.0.2",
+    "ts-node": "^10.9.1",
+    "tsup": "^6.3.0",
+    "typescript": "^4.8.4"
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/"
+  ],
+  "dependencies": {
+    "nostr-tools": "^0.24.1"
+  }
+}
