@@ -56,10 +56,15 @@ class UnaConnect {
         )
     }
 
-    async createInvoice(amount: number, description: string) {
+    async createInvoice({ amount, amountMsats, description, descriptionHash }: { amount: number | null; amountMsats: number | null; description: string | null; descriptionHash: string | null }) {
+        if (!amount && !amountMsats) throw new Error('amount or amountMsats should be defined')
+        if (amount && amountMsats) throw new Error('amount or amountMsats should be defined, but not both')
+        if (description && descriptionHash) throw new Error('description or descriptionHash should be defined')
+        if (!description && !descriptionHash) description = ''
+        
         const query = {
             action: 'createInvoice',
-            createInvoice: { amount, description },
+            createInvoice: { amount, amountMsats, description, descriptionHash },
         }
         return await this.linka.request(query)
     }
