@@ -1,15 +1,12 @@
 {
   "name": "una-connect-js",
-  "version": "0.0.1-beta",
+  "version": "0.0.2-beta",
   "description": "JS client for Una-connect",
   "repository": "https://github.com/dolu89/una-connect-js",
   "author": "Dolu",
   "license": "MIT",
   "private": false,
   "type": "module",
-  "publishConfig": {
-    "access": "public"
-  },
   "scripts": {
     "clean": "rimraf dist",
     "prepublishOnly": "npm run build",
